@@ -10,7 +10,14 @@ function handle(element, buffer) {
   var handler = handlers[element.name] || function() {
     throw new Error('Unsupported element: ' + element.name);
   };
-  handler(element, buffer);
+  try {
+    handler(element, buffer);
+  } catch(err) {
+    if (element.name === 'mo' && err.toString().match(/Error: Unsupported operator/))
+      handlers.mi(element, buffer);
+    else
+      throw err;
+  }
 }
 
 var handlerApi = {
