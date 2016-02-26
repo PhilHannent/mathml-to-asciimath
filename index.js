@@ -7,9 +7,9 @@ function handleAll(elements, buffer) {
 }
 
 function handle(element, buffer) {
-  var handler = handlers[element.name] || function() {
+  var handler = handlers[element.name] || handlers.gotoChildren; /*function() {
     throw new Error('Unsupported element: ' + element.name);
-  };
+  };*/
   try {
     handler(element, buffer);
   } catch(err) {
@@ -40,7 +40,7 @@ var handlers = {
   mover:  require('./lib/handlers/mover')(handlerApi),
   mstyle: require('./lib/handlers/mstyle')(handlerApi),
   mtext:  require('./lib/handlers/mtext')(handlerApi),
-  semantics: require('./lib/handlers/semantics')(handlerApi)
+  gotoChildren: require('./lib/handlers/gotoChildren')(handlerApi),
 };
 
 function toAsciiMath(mathml) {
