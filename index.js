@@ -39,7 +39,8 @@ var handlers = {
   msqrt:  require('./lib/handlers/msqrt')(handlerApi),
   mover:  require('./lib/handlers/mover')(handlerApi),
   mstyle: require('./lib/handlers/mstyle')(handlerApi),
-  mtext:  require('./lib/handlers/mtext')(handlerApi)
+  mtext:  require('./lib/handlers/mtext')(handlerApi),
+  semantics: require('./lib/handlers/semantics')(handlerApi)
 };
 
 function toAsciiMath(mathml) {
