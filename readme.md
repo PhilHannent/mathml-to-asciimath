@@ -5,9 +5,9 @@ Convert subset of MathML to text so that it can be parsed by BigEval node librar
 ## Usage
 
 ```
-var convert = require('mathml-to-asciimath');
+const convert = require('mathml-to-asciimath');
 
-var mathml = '<math><mn>1</mn><mo>+</mo><mn>2</mn></math>';
+const mathml = '<math><mn>1</mn><mo>+</mo><mn>2</mn></math>';
 convert(mathml); // => '1 + 2'
 ```
 
@@ -15,10 +15,9 @@ convert(mathml); // => '1 + 2'
 
     npm test
 
-## This module is not
+## This module is based on someone else's work
 
-- comprehensive
-- performant
+https://github.com/learningobjectsinc/mathml-to-asciimath
 
 ## License
 
