@@ -1,6 +1,6 @@
 # mathml-to-asciimath
 
-Convert subset of MathML to ASCIIMathML.
+Convert subset of MathML to text so that it can be parsed by BigEval node library.
 
 ## Usage
 
