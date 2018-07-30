@@ -1,9 +1,11 @@
 const xmldoc = require('xmldoc');
 
 function handleAll(elements, buffer) {
-	elements.forEach(function (element) {
-		handle(element, buffer)
-	});
+	try {
+		elements.forEach(function (element) {
+			handle(element, buffer)
+		});
+	} catch (e) { }
 }
 
 function handle(element, buffer) {
