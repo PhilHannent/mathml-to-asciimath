@@ -2,23 +2,25 @@ const xmldoc = require('xmldoc');
 
 function handleAll(elements, buffer) {
 	try {
-		elements.forEach(function (element) {
-			handle(element, buffer)
-		});
-	} catch (e) { }
+		if (!elements) {
+			return;
+		}
+		for (let i = 0, len = elements.length; i < len; i++) {
+			handle(elements[i], buffer);
+		}
+	} catch (err) { }
 }
 
 function handle(element, buffer) {
-	const handler = handlers[element.name] || handlers.gotoChildren; /*function() {
-    throw new Error('Unsupported element: ' + element.name);
-  };*/
+	const handler = handlers[element.name] || handlers.gotoChildren;
 	try {
 		handler(element, buffer);
 	} catch (err) {
-		if (element.name === 'mo' && err.toString().match(/Error: Unsupported operator/))
+		if (element.name === 'mo' && err.toString().match(/Error: Unsupported operator/)) {
 			handlers.mi(element, buffer);
-		else
+		} else {
 			throw err;
+		}
 	}
 }
 
