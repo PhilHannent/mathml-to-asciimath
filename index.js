@@ -8,7 +8,9 @@ function handleAll(elements, buffer) {
 		for (let i = 0, len = elements.length; i < len; i++) {
 			handle(elements[i], buffer);
 		}
-	} catch (err) { }
+	} catch (err) {
+		return;
+	}
 }
 
 function handle(element, buffer) {

@@ -1,6 +1,6 @@
 {
 	"name": "mathml-to-asciimath",
-	"version": "1.4.2",
+	"version": "1.4.3",
 	"description": "Convert subset of MathML to text",
 	"main": "index.js",
 	"scripts": {
